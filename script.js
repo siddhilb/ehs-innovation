@@ -1,7 +1,7 @@
-// --- SMOOTH SCROLL LOGIC ---
-let current = 0; 
-let target = 0;  
-const ease = 0.075; 
+// --- LERP SCROLLING ---
+let current = 0;
+let target = 0;
+const ease = 0.075;
 const title = document.querySelector('.giant-title');
 
 function lerp(start, end, t) {
@@ -22,18 +22,20 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+// ... LERP SCROLLING CODE REMAINS THE SAME ...
 
-// --- DRAWER & CALCULATOR LOGIC ---
+// --- UPDATED DRAWER LOGIC ---
 const drawer = document.getElementById('envDrawer');
 const drawerTitle = document.getElementById('drawerTitle');
 const drawerDescription = document.getElementById('drawerDescription');
-const fashionAlts = document.getElementById('fashionAlternatives');
-const calculatorContainer = document.getElementById('calculatorContainer');
 
-const wasteSlider = document.getElementById('wasteSlider');
-const kgValue = document.getElementById('kgValue');
-const co2Value = document.getElementById('co2Value');
-const trashRes = document.getElementById('trashResources');
+// New Section IDs
+const sections = {
+    voting: document.getElementById('votingResources'),
+    police: document.getElementById('policeResources'),
+    protest: document.getElementById('protestResources'),
+    privacy: document.getElementById('privacyResources')
+};
 
 function openDrawer(title, description, type) {
     drawerTitle.innerText = title;
@@ -41,18 +43,12 @@ function openDrawer(title, description, type) {
     
     drawer.scrollTo(0, 0);
 
-    // Hide all sections
-    fashionAlts.style.display = 'none';
-    calculatorContainer.style.display = 'none';
-    trashRes.style.display = 'none';
+    // Hide everything
+    Object.values(sections).forEach(s => { if(s) s.style.display = 'none'; });
 
-    // Logic for Trash type
-    if (type === 'trash') {
-        trashRes.style.display = 'block';
-    } else if (type === 'fashion') {
-        fashionAlts.style.display = 'block';
-    } else if (type === 'food') {
-        calculatorContainer.style.display = 'block';
+    // Show specific section
+    if (sections[type]) {
+        sections[type].style.display = 'block';
     }
     
     drawer.classList.add('active');
@@ -61,16 +57,5 @@ function openDrawer(title, description, type) {
 
 function closeDrawer() {
     drawer.classList.remove('active');
-    // Re-enable body scrolling
     document.body.style.overflow = 'auto';
 }
-
-
-// Food Waste Calculation: 1kg waste ≈ 2.5kg CO2e. 52 weeks in a year.
-wasteSlider.addEventListener('input', (e) => {
-    const kg = e.target.value;
-    const yearlyCo2 = (kg * 2.5 * 52).toFixed(1);
-    
-    kgValue.innerText = kg;
-    co2Value.innerText = yearlyCo2;
-});
