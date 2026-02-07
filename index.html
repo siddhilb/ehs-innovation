@@ -12,60 +12,73 @@
         <div class="outline">HO</div>
     </h1>
     <h2>Every Citizen Has Options. Know your rights.</h2>
-
     <div class="reveal-curtain">
-        <div class="card-container">
-            <button class="card" onclick="openDrawer('Voting', 'Elections are the foundation of democracy, yet systemic barriers often prevent full participation.', 'voting')">Voting</button>
-            <button class="card" onclick="openDrawer('Interactions', 'Knowing how to navigate encounters with authority protects your safety and your legal standing.', 'police')">Police</button>
-            <button class="card" onclick="openDrawer('Protest', 'The right to peaceably assemble is a cornerstone of the First Amendment, but it has limits.', 'protest')">Protest</button>
-            <button class="card" onclick="openDrawer('Privacy', 'In a digital age, your data and your device are extensions of your private life.', 'privacy')">Privacy</button>
+
+<div class="bottom-nav" id="bottomNav">
+    <button class="wide-lib-btn" onclick="openDrawer('Library', 'Search federal and state statutes regarding your civil liberties.', 'library')">
+        <span>Open Legal Library</span>
+        <span class="plus-icon">+</span>
+    </button>
+</div>
+        <div class="carousel-viewport">
+            <div class="card-container">
+                <button class="card" onclick="openDrawer('Voting', 'Elections are the foundation of democracy.', 'voting')">Voting</button>
+                <button class="card" onclick="openDrawer('Interactions', 'Navigating encounters with authority.', 'police')">Police</button>
+                <button class="card" onclick="openDrawer('Protest', 'The right to peaceably assemble.', 'protest')">Protest</button>
+                <button class="card" onclick="openDrawer('Privacy', 'Protecting your digital sovereignty.', 'privacy')">Privacy</button>
+            </div>
         </div>
+        
     </div>
+    
 </section>
+
 
 <div id="envDrawer" class="environment-page">
     <div class="close-btn" onclick="closeDrawer()">Close</div>
     <div class="env-content">
         <h2 id="drawerTitle">Title</h2>
         <p id="drawerDescription">Description</p>
+        <div id="libraryResources" style="display:none; margin-top: 30px; text-align: left;">
+    <div class="search-container">
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="lawSearch" placeholder="Search laws..." onkeyup="filterLaws()" style="flex-grow: 1;">
+            <button id="askOnlineBtn" class="action-btn" style="display:none; margin-top:0; white-space: nowrap;" onclick="searchGoogle()">Ask Online</button>
+        </div>
+    </div>
+    <div id="lawList" class="law-grid"></div>
+</div>
+
+        <div id="votingResources" style="display:none; margin-top: 30px;">
+            <h3 class="section-header">Action Checklist</h3>
+            <ul class="rights-list">
+                <li><strong>◎ Check Registration:</strong> Verify your status monthly.</li>
+                <li><strong>◎ Know Your ID:</strong> Verify if your state requires photo ID.</li>
+            </ul>
+        </div>
         
-        <div id="votingResources" style="display:none; margin-top: 30px; text-align: left;">
-            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">Action Checklist</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>◎ Check Registration:</strong> Many states purge rolls; verify your status monthly.</li>
-                <li><strong>◎ Know Your ID:</strong> Verify if your state requires a photo ID or a secondary proof of address.</li>
-                <li><strong>◎ Provisional Ballots:</strong> If you are turned away, you have a right to a provisional ballot.</li>
-            </ul>
-            <button class="action-btn" onclick="window.open('https://vote.gov/', '_blank')">Register to Vote</button>
-        </div>
-
-        <div id="policeResources" style="display:none; margin-top: 30px; text-align: left;">
-            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">The "Stay Safe" Protocol</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>◎ Right to Remain Silent:</strong> You must state clearly: "I am invoking my right to remain silent."</li>
-                <li><strong>◎ Search Refusal:</strong> Unless there is a warrant, say: "I do not consent to a search."</li>
-                <li><strong>◎ Right to Record:</strong> You have a right to record interactions in public spaces.</li>
-            </ul>
-            <button class="action-btn" onclick="window.open('https://www.aclu.org/know-your-rights/', '_blank')">Full Legal Guide</button>
-        </div>
-
-        <div id="protestResources" style="display:none; margin-top: 30px; text-align: left;">
-            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">Protester Rights</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>◎ Public Forums:</strong> Parks and sidewalks are traditionally protected spaces.</li>
-                <li><strong>◎ Dispersal Orders:</strong> Police must provide an exit path before making arrests for "unlawful assembly."</li>
-                <li><strong>◎ Digital Safety:</strong> Use encrypted apps and disable biometrics (FaceID/TouchID) on your phone.</li>
+        <div id="policeResources" style="display:none; margin-top: 30px;">
+            <h3 class="section-header">The "Stay Safe" Protocol</h3>
+            <ul class="rights-list">
+                <li><strong>◎ Right to Remain Silent:</strong> Explicitly invoke this right.</li>
+                <li><strong>◎ Search Refusal:</strong> "I do not consent to a search."</li>
             </ul>
         </div>
 
-        <div id="privacyResources" style="display:none; margin-top: 30px; text-align: left;">
-            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">Digital Sovereignty</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>◎ End-to-End Encryption:</strong> Use Signal or WhatsApp for sensitive communications.</li>
-                <li><strong>◎ Two-Factor Auth:</strong> Protect your accounts from state or third-party hacking.</li>
-                <li><strong>◎ Metadata:</strong> Be aware that photos contain location data (EXIF) unless stripped.</li>
+        <div id="protestResources" style="display:none; margin-top: 30px;">
+            <h3 class="section-header">Protester Rights</h3>
+            <ul class="rights-list">
+                <li><strong>◎ Public Forums:</strong> Parks and sidewalks are protected.</li>
+                <li><strong>◎ Dispersal Orders:</strong> Police must provide an exit path.</li>
             </ul>
-            <button class="action-btn" onclick="window.open('https://ssd.eff.org/', '_blank')">Surveillance Self-Defense</button>
+        </div>
+
+        <div id="privacyResources" style="display:none; margin-top: 30px;">
+            <h3 class="section-header">Digital Sovereignty</h3>
+            <ul class="rights-list">
+                <li><strong>◎ Encryption:</strong> Use Signal for sensitive chats.</li>
+                <li><strong>◎ Biometrics:</strong> Disable FaceID at protests.</li>
+            </ul>
         </div>
     </div>
 </div>

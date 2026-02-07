@@ -1,6 +1,7 @@
 
 .giant-title {
-    font-size: 25em;
+    /* Magic Numbers: Min 50px, Ideal 22vw, Max 400px */
+    font-size: clamp(50px, 22vw, 400px); 
     font-weight: 900;
     line-height: 0.8;
     text-align: center;
@@ -8,11 +9,10 @@
     margin: 0;
     color: #1a1a1a;
     text-transform: uppercase;
-    will-change: transform, opacity;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding-top:25vh;
+    padding-top: 20vh;
 }
 
 .outline {
@@ -198,4 +198,282 @@ h2 {
     color: transparent;
     -webkit-text-stroke: 1.5px #ffffff;
     background-color: #1a1a1a;
+}
+/* --- TABLET & MOBILE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .giant-title {
+        font-size: 15vw; /* Shrink title so it doesn't overflow */
+        padding-top: 15vh;
+    }
+    
+    #drawerTitle {
+        font-size: 4em; /* Make drawer title readable on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        padding-bottom: 50px;
+    }
+
+    .card {
+        width: 90vw; /* Cards take up most of the screen width */
+        height: 200px; /* Make them shorter rectangles for easier scrolling */
+        font-size: 1.8em;
+    }
+
+    .giant-title {
+        font-size: 20vw;
+        letter-spacing: -1vw;
+    }
+
+    h2 {
+        font-size: 0.8rem;
+        letter-spacing: 4px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .env-content {
+        padding: 0 20px;
+        margin: 10vh auto;
+    }
+
+    #drawerTitle {
+        font-size: 3em;
+    }
+
+    .close-btn {
+        top: 20px;
+        right: 20px;
+        font-size: 1em;
+    }
+}
+
+/* --- SMALL PHONE ADJUSTMENTS --- */
+@media (max-width: 480px) {
+    .giant-title {
+        font-size: 25vw; /* Large and bold for impact */
+    }
+
+    #drawerDescription {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+}
+/* This triggers when the screen is 768px wide or smaller (Tablets/Phones) */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stacks cards vertically */
+        align-items: center;    /* Centers them horizontally */
+        gap: 30px;              /* Adds space between the stacked cards */
+        padding-bottom: 50px;   /* Extra space at the bottom for scrolling */
+    }
+
+    .card {
+        width: 90vw;            /* Makes cards wide enough for thumb-tapping */
+        height: 180px;          /* Adjusted height for a list-like appearance */
+        font-size: 1.8em;       /* Slightly smaller text for mobile screens */
+    }
+
+    .reveal-curtain {
+        justify-content: center; /* Centers the whole container on mobile */
+        padding-left: 0;         /* Removes the desktop-only side padding */
+    }
+}
+/* --- IPAD & TABLET (2x2 Grid) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+        gap: 30px;
+        padding: 50px;
+        justify-items: center;
+    }
+
+    .card {
+        width: 100%;       /* Let the grid control the width */
+        max-width: 340px;  /* Keep them from getting too huge */
+        height: 300px;     /* Square-ish shape for tablets */
+        font-size: 2.2em;
+    }
+
+    .giant-title {
+        font-size: 18vw;
+        padding-top: 15vh;
+    }
+
+    #drawerTitle {
+        font-size: 5em;
+    }
+}
+
+/* --- IPAD / TABLET SCALING --- */
+@media (min-width: 769px) and (max-width: 1180px) {
+    .giant-title {
+        font-size: 18vw; /* Scales down the title so it fits better */
+        padding-top: 12vh;
+        letter-spacing: -1vw;
+    }
+
+    h2 {
+        font-size: 1rem;
+        letter-spacing: 6px;
+    }
+
+    .carousel-viewport {
+        padding: 20px 0;
+    }
+
+    .card-container {
+        padding: 0 20vw; /* Centers the active card more prominently */
+        gap: 40px;       /* Wider gap for larger screens */
+    }
+
+    .card {
+        width: 60vw;     /* Makes cards look more like a tablet "page" */
+        max-width: 500px;
+        height: 550px;   /* Taller for better reading on iPad */
+        font-size: 3em;
+    }
+}
+.search-container {
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+#lawSearch {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: 3px solid #1a1a1a;
+    font-family: Arial, sans-serif;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.law-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.law-item {
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 5px solid #1a1a1a;
+    transition: transform 0.2s;
+}
+
+.law-item h4 {
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+.law-item p {
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.law-tag {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+/* --- BOTTOM NAVIGATION BAR --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    background: linear-gradient(transparent, #f4f4f4 50%); /* Subtle fade behind button */
+}
+
+.wide-lib-btn {
+    width: 100%;
+    max-width: 1200px; /* Limits width on large monitors */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 25px 40px;
+    border-radius: 100px; /* Capsule shape */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.wide-lib-btn:hover {
+    transform: scale(1.02);
+}
+
+.wide-lib-btn:active {
+    transform: scale(0.98);
+}
+
+.plus-icon {
+    font-size: 1.5rem;
+}
+
+/* Adjusting layout for iPad/Mobile to ensure the button doesn't cover content */
+@media (max-width: 1024px) {
+    .reveal-curtain {
+        padding-bottom: 120px; /* Space for the bottom button */
+    }
+    
+    .wide-lib-btn {
+        padding: 20px 30px;
+        font-size: 1rem;
+    }
+}
+/* Hide the carousel initially */
+.reveal-curtain {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+    pointer-events: none;
+}
+
+/* Hide the bottom nav initially */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(100px); /* Start below the screen */
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+/* Classes to trigger the reveal */
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
