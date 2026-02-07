@@ -152,3 +152,18 @@ document.addEventListener('keydown', (e) => {
         closeDrawer();
     }
 });
+// --- LANGUAGE LOGIC ---
+function toggleLangMenu() {
+    document.getElementById('langMenu').classList.toggle('show');
+}
+
+// Close menu if user clicks elsewhere
+window.onclick = function(event) {
+    if (!event.target.matches('.lang-btn')) {
+        var menus = document.getElementsByClassName("lang-menu");
+        for (var i = 0; i < menus.length; i++) {
+            menus[i].classList.remove('show');
+        }
+    }
+}
+

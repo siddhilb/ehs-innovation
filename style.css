@@ -1,4 +1,34 @@
 
+.top-nav-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Change to left: 20px if you want it opposite the language button */
+    z-index: 1001; /* Above the hero but below the drawer */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.info-btn {
+    background: transparent;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    padding: 8px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.info-btn:hover {
+    background: #1a1a1a;
+    color: white;
+}
+
 .giant-title {
     /* Magic Numbers: Min 50px, Ideal 22vw, Max 400px */
     font-size: clamp(50px, 22vw, 400px); 
