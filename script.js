@@ -33,27 +33,29 @@ const calculatorContainer = document.getElementById('calculatorContainer');
 const wasteSlider = document.getElementById('wasteSlider');
 const kgValue = document.getElementById('kgValue');
 const co2Value = document.getElementById('co2Value');
+const trashRes = document.getElementById('trashResources');
+
 function openDrawer(title, description, type) {
     drawerTitle.innerText = title;
     drawerDescription.innerText = description;
     
-    // Reset scroll position to top every time it opens
     drawer.scrollTo(0, 0);
 
-    // Hide all extra sections first
+    // Hide all sections
     fashionAlts.style.display = 'none';
     calculatorContainer.style.display = 'none';
+    trashRes.style.display = 'none';
 
-    // Show content based on type
-    if (type === 'fashion') {
+    // Logic for Trash type
+    if (type === 'trash') {
+        trashRes.style.display = 'block';
+    } else if (type === 'fashion') {
         fashionAlts.style.display = 'block';
     } else if (type === 'food') {
         calculatorContainer.style.display = 'block';
     }
     
     drawer.classList.add('active');
-    
-    // Optional: Stop the main body from scrolling while drawer is open
     document.body.style.overflow = 'hidden';
 }
 

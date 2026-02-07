@@ -14,11 +14,9 @@
     <div class="card-container">
 <button class="card" onclick="openDrawer('Fashion', 'Fast fashion operates on a high-speed business model that prioritizes rapid production and low costs, leading to profound environmental and social consequences. The industry is currently responsible for approximately 10% of global carbon emissions—exceeding the combined impact of all international flights and maritime shipping. This ecological footprint is driven by a heavy reliance on synthetic fibers like polyester, which require about 70 million barrels of oil annually to produce and can take up to 200 years to decompose in landfills. Beyond the atmosphere, fast fashion is the second-largest consumer of water globally; for context, it takes roughly 2,700 liters of water to produce a single cotton t-shirt. Socially, the industry often relies on the exploitation of workers in developing nations, where garment makers frequently earn far below a living wage and work in hazardous conditions. With consumers now buying 60% more clothing than they did two decades ago while keeping items for only half as long, the cycle generates nearly 92 million tons of textile waste every year.', 'fashion')">Fashion</button>
 <button class="card" onclick="openDrawer('Food Waste','Food waste is a staggering global paradox where roughly one-third of all food produced for human consumption—approximately 1.3 billion tons—is lost or wasted every year. This inefficiency occurs at every stage of the supply chain: in developing nations, it often happens early due to poor infrastructure and storage, while in developed nations, it is primarily driven by retail standards and consumer behavior. We discard perfectly edible produce because of minor aesthetic defects or misunderstood expiration labels, a habit that carries a heavy environmental price tag. When food rots in a landfill, it decomposes anaerobically to produce methane, a greenhouse gas significantly more potent than carbon dioxide. Beyond the climate impact, wasting food is a squandering of the massive amounts of water, land, and labor used to produce it, making it both an ecological crisis and a profound moral issue in a world where millions still face food insecurity.', 'food')">Food Waste</button>
-        <button class="card" onclick="openDrawer('Trash', 'The world generates over 2 billion tonnes of municipal solid waste annually, with at least 33% of that not managed in an environmentally safe manner.')">Trash</button>
-        <button class="card" onclick="openDrawer('Transport', 'The transport sector is responsible for approximately 24% of direct CO2 emissions from fuel combustion, with road vehicles accounting for nearly three-quarters of that.')">Transport</button>
+<button class="card" onclick="openDrawer('Trash', 'The world generates 2B+ tonnes of waste annually. Over 33% is not managed safely.', 'trash')">Trash</button>        <button class="card" onclick="openDrawer('Transport', 'The transport sector is responsible for approximately 24% of direct CO2 emissions from fuel combustion, with road vehicles accounting for nearly three-quarters of that.')">Transport</button>
     </div>
 </div>
-
 <div id="envDrawer" class="environment-page">
     <div class="close-btn" onclick="closeDrawer()">Close</div>
     <div class="env-content">
@@ -34,15 +32,34 @@
             </p>
             <p style="font-size: 0.9em; opacity: 0.6;">That's like charging 600+ smartphones.</p>
         </div>
+
         <div id="fashionAlternatives" style="display:none; margin-top: 30px; text-align: left;">
-    <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">The Conscious Alternative</h3>
-    <ul style="list-style: none; padding: 0; font-family: Arial, sans-serif; line-height: 2;">
-        <li><strong>◎ Shop Second-Hand:</strong> Visit thrift stores or use apps like Depop/Poshmark to give clothes a second life.</li>
-        <li><strong>◎ The 30-Wear Rule:</strong> Before buying, ask: "Will I wear this at least 30 times?" If not, don't buy it.</li>
-        <li><strong>◎ Rent for Events:</strong> Use rental services for weddings or parties instead of buying a "one-time" outfit.</li>
-        <li><strong>◎ Repair & Upcycle:</strong> Learn to sew a button or patch a hole to keep garments out of landfills.</li>
-    </ul>
-    <button class="action-btn" onclick="window.open('https://goodonyou.eco/', '_blank')">Find Ethical Brands</button>
+            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">The Conscious Alternative</h3>
+            <ul style="list-style: none; padding: 0; font-family: Arial, sans-serif; line-height: 2;">
+                <li><strong>◎ Shop Second-Hand:</strong> Visit thrift stores or use apps like Depop/Poshmark.</li>
+                <li><strong>◎ The 30-Wear Rule:</strong> Will I wear this at least 30 times?</li>
+                <li><strong>◎ Rent for Events:</strong> Use rental services for parties.</li>
+                <li><strong>◎ Repair & Upcycle:</strong> Learn to sew a button or patch a hole.</li>
+            </ul>
+            <button class="action-btn" onclick="window.open('https://goodonyou.eco/', '_blank')">Find Ethical Brands</button>
+        </div>
+
+        <div id="trashResources" style="display:none; margin-top: 30px; text-align: left;">
+            <h3 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1.2em; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px;">The Zero-Waste Swap</h3>
+            <ul style="list-style: none; padding: 0; font-family: Arial, sans-serif; line-height: 2;">
+                <li><strong>◎ Bamboo Toothbrush:</strong> Plastic brushes take 400 years to decompose.</li>
+                <li><strong>◎ Beeswax Wraps:</strong> Replace plastic wrap with reusable wax.</li>
+                <li><strong>◎ Solid Shampoo:</strong> One bar replaces 3 plastic bottles.</li>
+                <li><strong>◎ Bulk Buying:</strong> Use jars to eliminate packaging.</li>
+            </ul>
+            <div style="margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 12px;">
+                <h4 style="margin: 0 0 10px 0;">Find Local Facilities</h4>
+                <p style="font-size: 0.9em; margin-bottom: 15px;">Proper disposal is key for electronics and glass.</p>
+                <button class="action-btn" onclick="window.open('https://www.google.com/maps/search/recycling+center+near+me/', '_blank')">View Recycling Near Me</button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
     </div>
 </div>
