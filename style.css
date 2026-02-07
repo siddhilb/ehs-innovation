@@ -401,6 +401,7 @@ h2 {
     padding: 20px;
     box-sizing: border-box;
     z-index: 10;
+    margin-top:100px;
     background: linear-gradient(transparent, #f4f4f4 50%); /* Subtle fade behind button */
 }
 
@@ -456,24 +457,23 @@ h2 {
     transition: all 1s ease-out;
     pointer-events: none;
 }
-
-/* Hide the bottom nav initially */
+/* --- UPDATED BOTTOM NAVIGATION --- */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 20px;
-    z-index: 10;
-    opacity: 0;
-    transform: translateY(100px); /* Start below the screen */
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    pointer-events: none;
+    z-index: 100; /* Ensure it stays above everything */
+    background: linear-gradient(transparent, #f4f4f4 40%); 
+    opacity: 1;            /* Always visible */
+    transform: translateY(0); /* Always in position */
+    pointer-events: auto;     /* Always clickable */
+    transition: transform 0.4s ease; /* For hiding when drawer is open */
 }
 
-/* Classes to trigger the reveal */
-.reveal-active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+/* Ensure the carousel doesn't overlap the button on mobile */
+.reveal-curtain {
+    padding-bottom: 120px; 
+    opacity: 1; /* Keeping the carousel visible too, or you can keep it scroll-hidden */
 }
